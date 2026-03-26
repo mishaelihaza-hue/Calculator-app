@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modern Calculator</title>
+
 <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -38,6 +39,43 @@
     <button class="equal" onclick="calculate()">=</button>
   </div>
 </div>
+
+<script>
+  const display = document.getElementById("display");
+
+  function append(value) {
+    display.value += value;
+  }
+
+  function clearDisplay() {
+    display.value = "";
+  }
+
+  function deleteLast() {
+    display.value = display.value.slice(0, -1);
+  }
+
+  function calculate() {
+    try {
+      display.value = eval(display.value);
+    } catch {
+      display.value = "Error";
+    }
+  }
+
+  // Keyboard support
+  document.addEventListener("keydown", (e) => {
+    if (!isNaN(e.key) || "+-*/.".includes(e.key)) {
+      append(e.key);
+    } else if (e.key === "Enter") {
+      calculate();
+    } else if (e.key === "Backspace") {
+      deleteLast();
+    } else if (e.key === "Escape") {
+      clearDisplay();
+    }
+  });
+</script>
 
 </body>
 </html>
