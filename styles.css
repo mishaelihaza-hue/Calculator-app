@@ -19,7 +19,7 @@
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 20px;
     padding: 20px;
-    width: 320px;
+    width: 380px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
   }
 
@@ -72,7 +72,6 @@
   }
 
   .equal {
-    grid-column: span 2;
     background: linear-gradient(135deg, #22c55e, #16a34a);
   }
 
